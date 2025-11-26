@@ -1,0 +1,22 @@
+{
+  "name": "cmr-fiadores-backend",
+  "version": "1.0.0",
+  "description": "API rest para crm de base de datos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "APY",
+    "NODE",
+    "EXPRESS",
+    "BCRYPT",
+    "MONGOOSE",
+    "JWT"
+  ],
+  "author": "David Giovanni Peña Arana <almacenamientoarana@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
