@@ -4,10 +4,25 @@ const express = require ('express');
 const router = express.Router();
 
 //definicion de las rutas
-router.get('/',( req, res ) =>{
-    res.send('<h1>Users</h1>');
-});
+router.get( '/', ( req, res ) => {
+    res.json({ msg: 'Obtiene todos los usuarios' });
+} );
 
+router.post( '/', ( req, res ) => {
+    res.json({ msg: 'Crear un usuario' });
+} );
+
+router.put( '/', ( req, res ) => {
+    res.json({ msg: 'Actualiza todos las propiedades del usuario' });
+} );
+
+router.patch( '/', ( req, res ) => {
+    res.json({ msg: 'Actualiza parcialmente 1 o todas las propiedades del usuario' });
+} );
+
+router.delete( '/', ( req, res ) => {
+    res.json({ msg: 'Elimina un usuario' });
+} );
 // router.get('/health',( req, res ) =>{
 //     res.send('<h1>Health</h1>');
 // });

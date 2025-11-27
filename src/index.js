@@ -11,10 +11,10 @@ app.get('/health',( req, res ) =>{
     ];
     res.json(perro);
 });
-
+    
 //Middlewares Express las rutas por entidad
-app.use('/api/v1',require('./routes/users.routes.js'));
-app.use('/products',require('./routes/products.routes.js'));
+app.use('/api/v1/user',require('./routes/users.routes.js'));
+app.use('/api/v1/products',require('./routes/products.routes.js'));
 
 
 //Lanzando el servidor web usando Express
