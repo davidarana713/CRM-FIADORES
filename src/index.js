@@ -1,5 +1,8 @@
-const express = require('express'); //Importaciom
-const dbconection = require('./config/mongo.config.js');
+import express from 'express'; //Importaciom
+import dbconection from  './config/mongo.config.js';
+import usersRoute from './routes/users.routes.js';
+import productsRoute from './routes/products.routes.js';
+
 
 const app = express();       //Invocando core Express
 const PORT = 3000;           //Definiendo el puerto de escucha
@@ -16,8 +19,8 @@ app.get('/health',( req, res ) =>{
 });
     
 //Middlewares Express las rutas por entidad
-app.use('/api/v1/user',require('./routes/users.routes.js'));
-app.use('/api/v1/products',require('./routes/products.routes.js'));
+app.use('/api/v1/user',usersRoute);
+app.use('/api/v1/products',productsRoute);
 
 
 //Lanzando el servidor web usando Express
