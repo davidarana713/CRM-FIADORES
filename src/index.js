@@ -19,6 +19,7 @@ app.get('/health',( req, res ) =>{
 });
     
 //Middlewares Express las rutas por entidad
+app.use(express.json());
 app.use('/api/v1/user',usersRoute);
 app.use('/api/v1/products',productsRoute);
 
