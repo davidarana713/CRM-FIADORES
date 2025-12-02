@@ -1,6 +1,7 @@
 import userModel from "../models/User.model.js";
 import { resgisterUser } from "../services/user.service.js";
 const createUser = async ( req, res ) => {
+    try{
     const data = req.body;
 
     //Mostrar en la consola
@@ -14,5 +15,14 @@ const createUser = async ( req, res ) => {
         dataRegister 
     });
 }
+
+catch (error){
+    console.error(error);
+    res.json({
+        msg:'Error no se puede crear el usuario'
+    });
+
+};
+};
 
 export{createUser}
