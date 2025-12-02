@@ -1,6 +1,7 @@
 //Importando la dependencia 'express' usando Common.js
 import express from 'express'
-import UserModel from '../models/User.model.js';
+
+import { createUser } from '../controllers/user.comtroller.js';
 
 const router = express.Router();
 
@@ -9,20 +10,7 @@ const router = express.Router();
 //     res.json({ msg: 'Obtiene todos los usuarios' });
 // } );
 
-router.post( '/', async ( req, res ) => {
-    // extraer el cjuerpo de la peticion 
-    const data = req.body;
-
-    // registrar los datos en la base de datos
-  const dataRegistered = await UserModel.create(data);
-
-
-// responder al cliente 
-
-    res.json({ msg: 'Crear un usuario', 
-        dataRegistered
-     });
-} );
+router.post( '/', createUser );
 
 
 
