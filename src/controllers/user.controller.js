@@ -1,4 +1,5 @@
 import userModel from "../models/User.model.js";
+import { resgisterUser } from "../services/user.service.js";
 const createUser = async ( req, res ) => {
     const data = req.body;
 
@@ -7,7 +8,7 @@ const createUser = async ( req, res ) => {
 
     //registrar los datos usando el userModel
     
-    const dataRegister = await userModel.create(data); //Registrar los datos en la base de datos
+    const dataRegister = await resgisterUser( data ); //Registrar los datos en la base de datos
 
     res.json({ msg: 'Crear un usuario',
         dataRegister 

@@ -40,13 +40,16 @@ const userSchema = new Schema({
             type:Boolean,
             default: true
         },
+
         // isVerified:{
         //     code:String,
         //     trim: true,
 
         // }
 
-},{}); 
+},{versionKey: false,
+    timestamps: true
+}); 
 
 //Crear el modelo user basado en el esquema userSchema
 const userModel = model(
