@@ -36,12 +36,19 @@ const userSchema = new Schema(
 
     isActive: {type: Boolean,
      default: true
-    }
+    },
+    // // createdate: {
+    // //     type: Date,
+    // //     default: new Date().now
+    // // },
+
     // isVerified: {
     //     code: String,
     //     trim: true
     // }
-},{}
+},{ versionKey: false, // Deshabilitar el campo __v
+    timestamps: true  // Crear campos createdAt y updatedAt
+}  
 );
 
 //crear el modelo  de Usuario a partir del esquema
