@@ -1,5 +1,5 @@
 import userModel from "../models/User.model.js";
-import { resgisterUser } from "../services/user.service.js";
+import { dbGetAllUser, dbresgisterUser } from "../services/user.service.js";
 const createUser = async ( req, res ) => {
     try{
     const data = req.body;
@@ -9,7 +9,7 @@ const createUser = async ( req, res ) => {
 
     //registrar los datos usando el userModel
     
-    const dataRegister = await resgisterUser( data ); //Registrar los datos en la base de datos
+    const dataRegister = await dbresgisterUser( data ); //Registrar los datos en la base de datos
 
     res.json({ msg: 'Crear un usuario',
         dataRegister 
@@ -25,4 +25,21 @@ catch (error){
 };
 };
 
-export{createUser}
+const getAllUsers = async (req, res) => {
+     try {
+    const users = await dbGetAllUser ();
+    res.json({
+        msg:'obtiene todos los usuarios',
+        users
+    });
+}
+catch (error){
+    console.error( error );
+    res.json({
+        msg:'Error:No se puedo obtener el listado de usuarios'
+    });
+}
+
+}
+
+export{createUser,getAllUsers}
