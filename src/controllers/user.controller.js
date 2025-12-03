@@ -80,4 +80,35 @@ catch(error){
 
 }
 
-export{createUser,getAllUsers,getUserById,deleteUserById}
+const updateUserById = async (req, res) => {
+try {
+    const inputData = req.body;
+    const idUser = req.params.idUser;
+
+    const userUpdate = await userModel.findByIdAndUpdate(
+        idUser,
+        inputData,
+        {new: true}
+    );
+   
+
+    res.json(
+        inputData,
+        idUser
+    );
+
+}
+
+catch (error) {
+    consolo.error(error);
+    res.json({
+        msg: 'ERROR: No pudo actualizar el usuariopor Id'
+    })
+}
+
+};
+
+
+
+export{createUser,getAllUsers,getUserById,deleteUserById,updateUserById}
+
