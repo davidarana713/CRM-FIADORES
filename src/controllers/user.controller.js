@@ -1,5 +1,5 @@
 import userModel from "../models/User.model.js";
-import { dbGetAllUser, dbGetUserById, dbresgisterUser } from "../services/user.service.js";
+import { dbDeleteUserById, dbGetAllUser, dbGetUserById, dbresgisterUser } from "../services/user.service.js";
 const createUser = async ( req, res ) => {
     try{
     const data = req.body;
@@ -60,4 +60,24 @@ const getUserById = async (req, res) => {
    }
 }
 
-export{createUser,getAllUsers,getUserById}
+const deleteUserById = async (req, res) => {
+    try{
+    const idUser = req.params.idUser;
+
+    const userDeleted = await dbDeleteUserById( idUser );
+
+    res.json({
+        userDeleted
+    });
+}
+
+catch(error){
+    console.error(error);
+    res.json({
+        msg:'Error no se puedo eliminar el usuario por Id'
+    });
+}
+
+}
+
+export{createUser,getAllUsers,getUserById,deleteUserById}
