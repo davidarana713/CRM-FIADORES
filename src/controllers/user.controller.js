@@ -1,5 +1,5 @@
 import userModel from "../models/User.model.js";
-import { dbDeleteUserById, dbGetAllUser, dbGetUserById, dbresgisterUser } from "../services/user.service.js";
+import { dbDeleteUserById, dbGetAllUser, dbGetUserById, dbresgisterUser, dbupdateUserById } from "../services/user.service.js";
 const createUser = async ( req, res ) => {
     try{
     const data = req.body;
@@ -85,11 +85,7 @@ try {
     const inputData = req.body;
     const idUser = req.params.idUser;
 
-    const userUpdate = await userModel.findByIdAndUpdate(
-        idUser,
-        inputData,
-        {new: true}
-    );
+    const userUpdate = await dbupdateUserById(idUser,inputData);
    
 
     res.json(
@@ -100,7 +96,7 @@ try {
 }
 
 catch (error) {
-    consolo.error(error);
+    console.error(error);
     res.json({
         msg: 'ERROR: No pudo actualizar el usuariopor Id'
     })

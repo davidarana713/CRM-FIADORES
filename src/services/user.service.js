@@ -18,9 +18,19 @@ const dbDeleteUserById = async (_id) => {
 
 }
 
+const dbupdateUserById = async (_id,inputData) => {
+      
+   return await userModel.findByIdAndUpdate(
+        _id,
+        inputData,
+        {new: true}
+    );
+}
+
 export{
     dbresgisterUser,
     dbGetAllUser,
     dbGetUserById,
-    dbDeleteUserById
+    dbDeleteUserById,
+    dbupdateUserById
 }
